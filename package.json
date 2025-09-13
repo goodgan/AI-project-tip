@@ -1,0 +1,21 @@
+
+{
+  "name": "ai-project-tip-generator",
+  "version": "1.0.0",
+  "description": "A simple tool to generate JSON prompts for AI development projects.",
+  "main": "app.js",
+  "scripts": {
+    "start": "http-server .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ai",
+    "prompt",
+    "generator"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "http-server": "^14.1.1"
+  }
+}

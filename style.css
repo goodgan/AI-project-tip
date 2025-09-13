@@ -1,0 +1,288 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+
+:root {
+    --primary-color: #4a90e2;
+    --background-color: #f4f7f9;
+    --text-color: #333;
+    --card-background: #ffffff;
+    --shadow-color: rgba(0, 0, 0, 0.08);
+    --border-color: #e0e6ed;
+    --success-color: #4caf50;
+    --light-gray: #f8f9fa;
+    --medium-gray: #e9ecef;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Noto Sans SC', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+header p {
+    font-size: 1.1rem;
+    color: #666;
+}
+
+.card {
+    background: var(--card-background);
+    border-radius: 12px;
+    padding: 1.8rem 2.2rem;
+    box-shadow: 0 4px 20px var(--shadow-color);
+    border: 1px solid var(--border-color);
+    margin-bottom: 2rem;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "basic-info tech-stack"
+        "custom-rules custom-rules";
+    gap: 2rem;
+    margin-bottom: 0;
+}
+
+#basic-info-card { grid-area: basic-info; }
+#tech-stack-card { grid-area: tech-stack; }
+#custom-rules-card { 
+    grid-area: custom-rules; 
+    margin-bottom: 0;
+}
+
+.rules-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem 2rem;
+}
+
+.icon {
+    margin-right: 0.7rem;
+    vertical-align: middle;
+}
+
+.card h2 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+}
+
+.form-group {
+    margin-bottom: 0;
+}
+
+.form-group-hint-inline {
+    margin-left: 1rem;
+    color: #777;
+    font-size: 0.9em;
+    align-self: center;
+}
+
+.form-group-hint-inline code {
+    background-color: var(--medium-gray);
+    padding: 2px 5px;
+    border-radius: 4px;
+}
+
+
+label, legend {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.7rem;
+    font-size: 1rem;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    font-family: 'Noto Sans SC', sans-serif;
+    background-color: #fdfdfd;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+}
+
+.rules-grid .form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.rules-grid textarea {
+    flex-grow: 1;
+    resize: vertical;
+    min-height: 120px;
+}
+
+#ruleLanguage {
+    height: 45px;
+}
+
+fieldset {
+    border: none;
+    margin-bottom: 1.5rem;
+    padding: 0;
+}
+
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center; /* Vertically align items */
+}
+
+.checkbox-group input[type="checkbox"] {
+    display: none;
+}
+
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    background-color: var(--light-gray);
+    padding: 0.7rem 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+    font-weight: 400;
+    border: 1px solid var(--border-color);
+}
+
+.checkbox-group label:hover {
+    background-color: var(--medium-gray);
+}
+
+.checkbox-group input[type="checkbox"]:checked + label {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+    box-shadow: 0 2px 5px rgba(74, 144, 226, 0.3);
+}
+
+#deliverables-card .checkbox-group label {
+    font-size: 0.95rem;
+}
+
+.action-card {
+    text-align: center;
+    padding: 0;
+    background: none;
+    border: none;
+    box-shadow: none;
+    margin-bottom: 2rem;
+}
+
+#generateBtn {
+    display: inline-block;
+    width: auto;
+    padding: 1rem 3rem;
+    background: linear-gradient(45deg, #5a9ff0, #4a90e2);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.4);
+}
+
+#generateBtn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(74, 144, 226, 0.5);
+}
+
+.output-area {
+    margin-top: 2rem;
+}
+
+#outputJson {
+    background-color: #2d3748;
+    color: #f7fafc;
+    padding: 1.5rem;
+    border-radius: 8px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+#copyBtn {
+    display: block;
+    margin-top: 1.5rem;
+    padding: 0.7rem 1.5rem;
+    background-color: var(--success-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 1rem;
+}
+
+#copyBtn:hover {
+    background-color: #45a049;
+}
+
+.hidden {
+    display: none;
+}
+
+footer {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+    color: #888;
+}
+
+@media (max-width: 1200px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "basic-info"
+            "tech-stack"
+            "custom-rules";
+    }
+}
+
+@media (max-width: 768px) {
+    .rules-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 项目提示词生成器</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI 项目提示词生成器</h1>
+            <p>为您的 AI 开发项目快速生成结构化的启动指令</p>
+        </header>
+
+        <main>
+            <div class="form-grid">
+                <!-- Top Row: Basic Info & Tech Stack -->
+                <div class="card" id="basic-info-card">
+                    <h2><span class="icon">📝</span> 基础信息</h2>
+                    <div class="form-group">
+                        <label for="projectName">项目名</label>
+                        <input type="text" id="projectName" placeholder="例如：智能客户关系管理系统">
+                    </div>
+                    <div class="form-group">
+                        <label for="requirements">大致/详细需求</label>
+                        <textarea id="requirements" rows="16" placeholder="请详细描述您的项目需求，例如：
+- 项目包名(com.example.projectName)
+- 用户管理模块（注册、登录、权限）
+- 客户信息录入与展示
+- 智能跟进提醒..."></textarea>
+                    </div>
+                </div>
+
+                <div class="card" id="tech-stack-card">
+                    <h2><span class="icon">🛠️</span> 技术栈选择</h2>
+                    <fieldset>
+                        <legend>前端技术</legend>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="fe-vue" name="frontend" value="Vue" checked><label for="fe-vue">Vue</label>
+                            <input type="checkbox" id="fe-react" name="frontend" value="React"><label for="fe-react">React</label>
+                            <input type="checkbox" id="fe-angular" name="frontend" value="Angular"><label for="fe-angular">Angular</label>
+                            <input type="checkbox" id="fe-svelte" name="frontend" value="Svelte"><label for="fe-svelte">Svelte</label>
+                            <input type="checkbox" id="fe-bootstrap" name="frontend" value="Bootstrap"><label for="fe-bootstrap">Bootstrap</label>
+                            <input type="checkbox" id="fe-tailwind" name="frontend" value="Tailwind CSS"><label for="fe-tailwind">Tailwind CSS</label>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend>后端技术</legend>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="be-java" name="backend" value="Java" checked><label for="be-java">Java</label>
+                            <input type="checkbox" id="be-springboot" name="backend" value="Spring Boot"><label for="be-springboot">Spring Boot</label>
+                            <input type="checkbox" id="be-mybatis" name="backend" value="MyBatis"><label for="be-mybatis">MyBatis</label>
+                            <input type="checkbox" id="be-nodejs" name="backend" value="Node.js"><label for="be-nodejs">Node.js</label>
+                            <input type="checkbox" id="be-express" name="backend" value="Express"><label for="be-express">Express</label>
+                            <input type="checkbox" id="be-python" name="backend" value="Python"><label for="be-python">Python</label>
+                            <input type="checkbox" id="be-django" name="backend" value="Django"><label for="be-django">Django</label>
+                            <input type="checkbox" id="be-flask" name="backend" value="Flask"><label for="be-flask">Flask</label>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend>数据库</legend>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="db-mysql" name="database" value="MySQL" checked><label for="db-mysql">MySQL</label>
+                            <input type="checkbox" id="db-pg" name="database" value="PostgreSQL"><label for="db-pg">PostgreSQL</label>
+                            <input type="checkbox" id="db-mongo" name="database" value="MongoDB"><label for="db-mongo">MongoDB</label>
+                            <input type="checkbox" id="db-redis" name="database" value="Redis"><label for="db-redis">Redis</label>
+                        </div>
+                    </fieldset>
+                    <div class="form-group">
+                        <label for="techSupplement">技术栈补充</label>
+                        <textarea id="techSupplement" rows="3" placeholder="例如：使用 Nginx 作为反向代理，使用 Docker 进行容器化部署..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Bottom Row: Custom Rules -->
+                <div class="card" id="custom-rules-card">
+                    <h2><span class="icon">📜</span> 自定义规则</h2>
+                    <div class="rules-grid">
+                        <div class="form-group">
+                            <label for="ruleLanguage">回复语言</label>
+                            <input type="text" id="ruleLanguage">
+                        </div>
+                        <div class="form-group">
+                            <label for="ruleInteraction">与 AI 的交互模式</label>
+                            <textarea id="ruleInteraction" rows="4"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="ruleProgressInstruction">开发进度记录规则</label>
+                            <textarea id="ruleProgressInstruction" rows="4"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="ruleCodeMod">代码修改规则</label>
+                            <textarea id="ruleCodeMod" rows="4"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Deliverables Card -->
+            <div class="card" id="deliverables-card">
+                <h2><span class="icon">📋</span> 生成文档选项</h2>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="del-analysis" name="deliverable" value="analysis" checked><label for="del-analysis">详细需求分析.md</label>
+                    <input type="checkbox" id="del-dict" name="deliverable" value="dict" checked><label for="del-dict">数据字典.md</label>
+                    <input type="checkbox" id="del-sql" name="deliverable" value="sql" checked><label for="del-sql">{project-name}.sql (数据库文件)</label>
+                    <input type="checkbox" id="del-data" name="deliverable" value="data" checked><label for="del-data">data_insert.sql (数据库初始化文件)</label>
+                    <input type="checkbox" id="del-api" name="deliverable" value="api" checked><label for="del-api">接口文档.md</label>
+                    <input type="checkbox" id="del-tech" name="deliverable" value="tech" checked><label for="del-tech">项目技术文档.md</label>
+                    <input type="checkbox" id="del-frontend-proto" name="deliverable" value="frontendProto"><label for="del-frontend-proto">动态纯前端原型</label>
+                </div>
+            </div>
+
+             <!-- Additional Options Card -->
+            <div class="card" id="additional-options-card">
+                 <h2><span class="icon">⚙️</span> 附加选项</h2>
+                 <div class="checkbox-group">
+                    <input type="checkbox" id="includeReference" name="additional"><label for="includeReference">包含参考项目</label>
+                    <small class="form-group-hint-inline">项目放置目录: <code>./参考项目</code></small>
+                 </div>
+            </div>
+
+            <!-- Action and Output -->
+            <div class="action-card card">
+                 <button id="generateBtn">生成 JSON 指令</button>
+            </div>
+
+            <div class="output-area card hidden">
+                <h2><span class="icon">📄</span> 生成的 JSON 指令</h2>
+                <pre id="outputJson"></pre>
+                <button id="copyBtn">复制到剪贴板</button>
+            </div>
+        </main>
+
+        <footer>
+            <p>由 Gemini AI 强力驱动</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
